@@ -1,0 +1,37 @@
+.select-register {
+	position: relative;
+	flex: 1 1 auto;
+	width: 1%;
+	margin-bottom: 0;
+}
+.select-register div:nth-child(2) {
+	position: relative;
+	flex: 1 1 auto;
+	width: 1%;
+	margin-bottom: 0;
+}
+.registerScreen h2 {
+	color: #2064d8;
+	font-weight: 600;
+}
+.registerScreen {
+	margin-bottom: 40px;
+}
+.inputRShow {
+    position: absolute;
+    top: 45%;
+    right: 10%;
+  }
+  .inputRShow:hover {
+    color: #2064d8;
+    cursor: pointer;
+  }
+
+  .password-icon {
+	position: absolute;
+	top: 41px;
+	right: 41px;
+	cursor: pointer;
+	color: grey;
+  }
+  

@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test3-app-frontend
+
+  labels:
+    helm.sh/chart: helm-frontend-0.1.0
+    app.kubernetes.io/name: helm-frontend
+    app.kubernetes.io/instance: test1-app-frontend
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    cert-manager.io/clusterissuer: simpleaccounts-letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  tls:
+    - hosts:
+      - test6-app.app.simpleaccounts.io
+      secretName: wildcard-app-simpleaccounts-io-tls
+  rules:
+    - host: "test6-app.app.simpleaccounts.io"
+      http:
+        paths:
+          - path: /hello-world-one/*
+            pathType: Prefix
+            backend:
+              service:
+                name: aks-helloworld-one
+                port:
+                  number: 80
